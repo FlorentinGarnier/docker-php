@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install -j$(nproc) pdo_mysql opcache pcntl intl zip
 
-COPY php.ini /usr/local/etc/php/conf.d/
+COPY config /usr/local/etc/php/conf.d/
 
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
