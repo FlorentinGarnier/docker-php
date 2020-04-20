@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm
 
 MAINTAINER Florentin Garnier <florentin@digital404.fr>
 
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 RUN docker-php-ext-install -j$(nproc) pdo_mysql opcache pcntl intl zip exif\
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
 RUN pecl install apcu xdebug

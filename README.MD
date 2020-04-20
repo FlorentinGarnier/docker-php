@@ -1,6 +1,6 @@
 # Very simple php-fpm docker container
 
-PHP 7.3 with some usefull module
+PHP 7.4 with some usefull module
 
 ## Usage
 
