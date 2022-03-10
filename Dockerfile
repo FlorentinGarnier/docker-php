@@ -8,10 +8,11 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
+    libxml2-dev\
     unzip \
     && apt-get clean
 
-RUN docker-php-ext-install -j$(nproc) pdo_mysql opcache pcntl intl zip gd
+RUN docker-php-ext-install -j$(nproc) pdo_mysql opcache pcntl intl zip gd soap
 
 RUN pecl install apcu xdebug
 RUN docker-php-ext-enable apcu xdebug
